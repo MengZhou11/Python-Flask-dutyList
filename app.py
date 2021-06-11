@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask, render_template, request
 import datetime
 
 app = Flask(__name__)
@@ -24,6 +24,18 @@ def index2():
     name = ["Tom","Amy","Mary"]
     task = {"Task":"Submit report","Deadline":"6pm"} #字典
     return render_template("index.html", var=time, list = name, task=task)
+
+#表单提交
+@app.route("/test/register")
+def register():
+    return render_template("test/register.html")
+
+#接收表单的网页需要写上methods
+@app.route("/result", methods=['POST', 'GET'])
+def result():
+    if request.method=='POST':
+        result = request.form
+        return render_template("test/result.html", result=result)
 
 
 
