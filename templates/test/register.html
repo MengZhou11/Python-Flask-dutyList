@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form action="http://localhost:5000/result" method="post">
+<form action="{{ url_for('result')}}" method="post">
     <p>Name: <input type="text" name ="Name"></input></p>
     <p>Age: <input type="text" name ="Age"></input></p>
     <p>Gender: <input type="text" name ="Gender"></input></p>
